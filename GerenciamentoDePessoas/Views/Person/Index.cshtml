@@ -1,0 +1,23 @@
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Person";
+    
+    Person? person =  JsonSerializer.Deserialize<Person>(ViewBag.User);
+}
+
+<h1>Person page</h1>
+<h2>@ViewBag.Message</h2>
+
+@if (person != null)
+{
+    <div>
+        <p>Id: @person.Id</p>
+        <p>Name: @person.Name</p>
+        <p>Age: @person.BirthDate</p>
+        <p>Email: @person.Email</p>
+    </div>
+}
+else
+{
+    <p>No person data available.</p>
+}

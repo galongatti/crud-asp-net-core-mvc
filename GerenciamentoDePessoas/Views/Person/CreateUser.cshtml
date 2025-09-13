@@ -1,0 +1,47 @@
+@model Person
+
+@{
+    ViewData["Title"] = "Create user";
+}
+
+<h1>Create user</h1>
+
+<form asp-action="CreateUser" asp-controller="Person" method="post">
+
+    <label for="Name">Name:</label>
+    <input id="name" asp-for="Name" placeholder="Name"/>
+    <span asp-validation-for="Name" style="color: red"></span>
+
+    <label for="Email">Email:</label>
+    <input id="email" asp-for="Email" placeholder="Email"/>
+    <span asp-validation-for="Email" style="color: red"></span>
+
+    <label for="BirthDate">Birth Date:</label>
+    <input id="birth-date" asp-for="BirthDate"/>
+    <span asp-validation-for="BirthDate" style="color: red"></span>
+
+    <button type="submit">Create</button>
+</form>
+
+
+@* @using (Html.BeginForm("CreateUser", "Person", FormMethod.Post)) *@
+@* { *@
+@*     <div> *@
+@*         @Html.LabelFor(Model => Model.Name) *@
+@*         @Html.TextBoxFor(Model => Model.Name) *@
+@*     </div> *@
+@*      *@
+@*     <div> *@
+@*         @Html.LabelFor(Model => Model.Email) *@
+@*         @Html.TextBoxFor(Model => Model.Email) *@
+@*     </div> *@
+@*      *@
+@*     <div> *@
+@*         @Html.LabelFor(Model => Model.BirthDate) *@
+@*         @Html.TextBoxFor(Model => Model.BirthDate) *@
+@*     </div> *@
+@*      *@
+@*     <input type="submit" value="Create"> *@
+@* } *@
+
+@Html.ActionLink("Back to Begining", "Index", "Home")

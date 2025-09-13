@@ -1,0 +1,19 @@
+@model Person?
+
+@{
+    ViewData["Title"] = "User details";
+}
+
+@{
+    if(Model != null)
+    {
+        <h1>@Model.Name</h1>
+        <p> Id: @Model.Id</p>
+        <p> Email: @Model.Email</p>
+        <p> BirthDate: @@Model.BirthDate</p>
+    }
+    else
+    {
+        <h1>User not found</h1>
+    }
+}

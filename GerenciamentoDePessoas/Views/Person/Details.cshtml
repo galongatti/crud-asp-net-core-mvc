@@ -1,0 +1,36 @@
+@* @model GerenciamentoDePessoas.Models.Person *@
+@model List<Person>
+
+@{
+    ViewData["Title"] = "User details";
+}
+
+<h1>@ViewBag.Description</h1>
+<h2>@ViewData["Resume"]</h2>
+<h2>@ViewBag.Date</h2>
+
+@foreach (Person person in @Model)
+{
+    <h1>Person details</h1>
+    <p> Id: @person.Id</p>
+    <p> Name: @person.Name</p>
+    <p> Email: @person.Email</p>
+    <p> BirthDate: @person.BirthDate</p>
+
+    int age = DateTime.Now.Year - person.BirthDate.Year;
+    DateTime birthDatePlusAge = person.BirthDate.AddYears(age);
+    if (DateTime.Now.Date < birthDatePlusAge)
+    {
+        age--;
+    }
+
+    if (age < 18)
+    {
+        <p style="color: red;">Underage</p>
+    }
+    else
+    {
+        <p style="color: green;">Adult</p>
+    }
+}
+
